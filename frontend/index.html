@@ -13,24 +13,15 @@
   </header>
 
   <main>
-    <section class="card help">
-      <h2>How to test (follow in order)</h2>
-      <ol>
-        <li>Make sure backend is running on port 8000</li>
-        <li><strong>Step 1:</strong> Choose SHD_Dispute_data.xlsx and click Upload</li>
-        <li><strong>Step 2:</strong> Click Download images (first 5) and wait 30-60 seconds</li>
-        <li><strong>Step 3:</strong> Click any dispute in the list</li>
-        <li><strong>Step 4:</strong> Click Run analysis</li>
-        <li><strong>Step 5:</strong> Save human review</li>
-      </ol>
-      <p class="hint">Upload the Excel file, not individual photos. Photos come from URLs in Excel.</p>
+    <section class="card">
+      <p class="hint">Use the controls below to manage disputes.</p>
     </section>
 
     <section class="card">
       <h2>1. Upload Excel</h2>
       <input type="file" id="excelFile" accept=".xlsx,.xls" />
       <button id="uploadBtn">Upload</button>
-      <pre id="uploadResult">Ready. Upload SHD_Dispute_data.xlsx to start.</pre>
+      <div id="uploadResult" class="status">Ready. Upload SHD_Dispute_data.xlsx to start.</div>
     </section>
 
     <section class="card">
@@ -52,7 +43,7 @@
         <button id="downloadBtn">Download images</button>
         <button id="analyzeBtn">Run analysis</button>
       </div>
-      <pre id="analysisResult">Select a dispute and run analysis.</pre>
+      <div id="analysisResult" class="status">Select a dispute and run analysis.</div>
 
       <h3>Human review</h3>
       <label>Decision

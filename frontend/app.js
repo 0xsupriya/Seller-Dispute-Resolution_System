@@ -24,8 +24,14 @@ async function api(path, options = {}) {
 }
 
 function show(id, text) {
-  document.getElementById(id).textContent =
-    typeof text === "string" ? text : JSON.stringify(text, null, 2);
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (typeof text === "string") {
+    el.textContent = text;
+  } else {
+    el.textContent = "Result available (see console)";
+    console.log("UI_RESULT", id, text);
+  }
 }
 
 function setStatus(text) {

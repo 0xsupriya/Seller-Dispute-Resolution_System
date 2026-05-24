@@ -82,3 +82,5 @@ input, select, textarea {
 .hint { color: #6b7280; font-size: 0.9rem; margin: 0.5rem 0; }
 .help code { background: #f3f4f6; padding: 0.1rem 0.35rem; border-radius: 4px; }
 button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.status { background: #fff; padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 6px; color: #111; }
