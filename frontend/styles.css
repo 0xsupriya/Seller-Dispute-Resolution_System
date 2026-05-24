@@ -10,13 +10,12 @@ header {
   color: #fff;
   padding: 1.25rem 1.5rem;
 }
-header h1 { margin: 0 0 0.25rem; font-size: 1.4rem; }
-header p { margin: 0; opacity: 0.85; font-size: 0.95rem; }
+header h1 { margin: 0; font-size: 1.4rem; }
 main { max-width: 1100px; margin: 0 auto; padding: 1rem; }
 .card {
   background: #fff;
   border-radius: 10px;
-  padding: 1rem 1.25rem;
+  padding: 1.25rem;
   margin-bottom: 1rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
@@ -28,47 +27,45 @@ button {
   border-radius: 6px;
   padding: 0.5rem 0.85rem;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 button:hover { background: #1d4ed8; }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
 .dispute-item {
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 0.75rem;
   margin: 0.5rem 0;
   cursor: pointer;
+  transition: background 0.2s;
 }
 .dispute-item:hover { background: #f9fafb; }
 .images {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 0.75rem;
+  margin: 1rem 0;
 }
 .image-box {
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 0.5rem;
   text-align: center;
+  background: #fafafa;
 }
 .image-box img {
   max-width: 100%;
   max-height: 180px;
   object-fit: contain;
 }
-pre {
-  background: #0f172a;
-  color: #e2e8f0;
-  padding: 0.75rem;
-  border-radius: 8px;
-  overflow: auto;
-  font-size: 0.8rem;
-}
-label { display: block; margin: 0.5rem 0; }
+label { display: block; margin: 0.75rem 0; }
 input, select, textarea {
   width: 100%;
   margin-top: 0.25rem;
-  padding: 0.45rem;
+  padding: 0.5rem;
   border: 1px solid #d1d5db;
   border-radius: 6px;
+  font-family: inherit;
 }
 .badge {
   display: inline-block;
@@ -78,9 +75,6 @@ input, select, textarea {
   border-radius: 999px;
   font-size: 0.75rem;
 }
-.help ol { margin: 0.5rem 0 0.5rem 1.25rem; }
 .hint { color: #6b7280; font-size: 0.9rem; margin: 0.5rem 0; }
-.help code { background: #f3f4f6; padding: 0.1rem 0.35rem; border-radius: 4px; }
-button:disabled { opacity: 0.6; cursor: not-allowed; }
+h2, h3 { margin: 0 0 0.75rem; }
 
-.status { background: #fff; padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 6px; color: #111; }

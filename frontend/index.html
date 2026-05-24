@@ -9,43 +9,24 @@
 <body>
   <header>
     <h1>Seller Dispute Resolution</h1>
-    <p>Upload Excel, download images, run AI analysis, human review</p>
   </header>
 
   <main>
     <section class="card">
-      <p class="hint">Use the controls below to manage disputes.</p>
-    </section>
-
-    <section class="card">
-      <h2>1. Upload Excel</h2>
-      <input type="file" id="excelFile" accept=".xlsx,.xls" />
-      <button id="uploadBtn">Upload</button>
-      <div id="uploadResult" class="status">Ready. Upload SHD_Dispute_data.xlsx to start.</div>
-    </section>
-
-    <section class="card">
-      <h2>2. Disputes</h2>
-      <div class="row">
-        <button id="refreshBtn">Refresh list</button>
-        <button id="downloadAllBtn">Download images (first 5)</button>
-        <button id="analyzeAllBtn">Analyze (first 5)</button>
-      </div>
-      <p id="listStatus" class="hint">Loading disputes...</p>
+      <h2>Disputes</h2>
       <div id="disputeList"></div>
     </section>
 
     <section class="card" id="detailSection" hidden>
-      <h2>3. Dispute detail</h2>
+      <h2>Dispute Details</h2>
       <div id="detailMeta"></div>
       <div class="images" id="imageGrid"></div>
       <div class="row">
-        <button id="downloadBtn">Download images</button>
-        <button id="analyzeBtn">Run analysis</button>
+        <button id="downloadBtn">Download Images</button>
+        <button id="analyzeBtn">Run Analysis</button>
       </div>
-      <div id="analysisResult" class="status">Select a dispute and run analysis.</div>
 
-      <h3>Human review</h3>
+      <h3>Human Review</h3>
       <label>Decision
         <select id="reviewDecision">
           <option value="approved">Approved</option>
@@ -57,9 +38,9 @@
         <input type="number" id="reviewPct" min="0" max="100" step="1" />
       </label>
       <label>Notes
-        <textarea id="reviewNotes" rows="3" placeholder="Optional review notes"></textarea>
+        <textarea id="reviewNotes" rows="3" placeholder="Optional notes"></textarea>
       </label>
-      <button id="saveReviewBtn">Save review</button>
+      <button id="saveReviewBtn">Save Review</button>
     </section>
   </main>
 
