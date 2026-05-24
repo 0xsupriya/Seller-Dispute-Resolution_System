@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seller Dispute Resolution</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Seller Dispute Resolution</h1>
+    <p>Upload disputes, download images, run AI assessment, human review</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1. Upload Excel</h2>
+      <input type="file" id="excelFile" accept=".xlsx,.xls" />
+      <button id="uploadBtn">Upload</button>
+      <pre id="uploadResult"></pre>
+    </section>
+
+    <section class="card">
+      <h2>2. Disputes</h2>
+      <div class="row">
+        <button id="refreshBtn">Refresh list</button>
+        <button id="downloadAllBtn">Download images (first 5)</button>
+        <button id="analyzeAllBtn">Analyze (first 5)</button>
+      </div>
+      <div id="disputeList"></div>
+    </section>
+
+    <section class="card" id="detailSection" hidden>
+      <h2>3. Dispute detail</h2>
+      <div id="detailMeta"></div>
+      <div class="images" id="imageGrid"></div>
+      <div class="row">
+        <button id="downloadBtn">Download images</button>
+        <button id="analyzeBtn">Run analysis</button>
+      </div>
+      <pre id="analysisResult"></pre>
+
+      <h3>Human review</h3>
+      <label>Decision
+        <select id="reviewDecision">
+          <option value="approved">Approved</option>
+          <option value="overridden">Overridden</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </label>
+      <label>Final compensation %
+        <input type="number" id="reviewPct" min="0" max="100" step="1" />
+      </label>
+      <label>Notes
+        <textarea id="reviewNotes" rows="3"></textarea>
+      </label>
+      <button id="saveReviewBtn">Save review</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

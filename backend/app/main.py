@@ -1,13 +1,36 @@
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from backend.app.config import settings
 from backend.app.database import check_db_connection, create_tables, list_tables
+from backend.app.routers import disputes
 
 app = FastAPI(
     title="Seller Dispute Resolution API",
     description="MVP for photo-based seller claim assessment",
-    version="0.2.0",
+    version="1.0.0",
 )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(disputes.router)
+
+storage_dir = Path(settings.storage_path)
+storage_dir.mkdir(parents=True, exist_ok=True)
+app.mount("/files", StaticFiles(directory=str(storage_dir)), name="files")
+
+frontend_dir = Path(__file__).resolve().parents[2] / "frontend"
+if frontend_dir.exists():
+    app.mount("/ui", StaticFiles(directory=str(frontend_dir), html=True), name="ui")
 
 
 @app.get("/")
@@ -17,7 +40,6 @@ def root() -> dict:
 
 @app.get("/health")
 def health() -> dict:
-    """Checks that the app runs and Neon PostgreSQL is reachable."""
     db_ok, db_message = check_db_connection()
     return {
         "status": "ok" if db_ok else "degraded",
@@ -30,7 +52,6 @@ def health() -> dict:
 
 @app.post("/api/db/init")
 def init_database() -> dict:
-    """Create tables in Neon (safe to run multiple times)."""
     db_ok, db_message = check_db_connection()
     if not db_ok:
         raise HTTPException(status_code=503, detail=db_message)
