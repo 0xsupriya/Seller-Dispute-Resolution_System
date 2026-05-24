@@ -9,15 +9,28 @@
 <body>
   <header>
     <h1>Seller Dispute Resolution</h1>
-    <p>Upload disputes, download images, run AI assessment, human review</p>
+    <p>Upload Excel, download images, run AI analysis, human review</p>
   </header>
 
   <main>
+    <section class="card help">
+      <h2>How to test (follow in order)</h2>
+      <ol>
+        <li>Make sure backend is running on port 8000</li>
+        <li><strong>Step 1:</strong> Choose SHD_Dispute_data.xlsx and click Upload</li>
+        <li><strong>Step 2:</strong> Click Download images (first 5) and wait 30-60 seconds</li>
+        <li><strong>Step 3:</strong> Click any dispute in the list</li>
+        <li><strong>Step 4:</strong> Click Run analysis</li>
+        <li><strong>Step 5:</strong> Save human review</li>
+      </ol>
+      <p class="hint">Upload the Excel file, not individual photos. Photos come from URLs in Excel.</p>
+    </section>
+
     <section class="card">
       <h2>1. Upload Excel</h2>
       <input type="file" id="excelFile" accept=".xlsx,.xls" />
       <button id="uploadBtn">Upload</button>
-      <pre id="uploadResult"></pre>
+      <pre id="uploadResult">Ready. Upload SHD_Dispute_data.xlsx to start.</pre>
     </section>
 
     <section class="card">
@@ -27,6 +40,7 @@
         <button id="downloadAllBtn">Download images (first 5)</button>
         <button id="analyzeAllBtn">Analyze (first 5)</button>
       </div>
+      <p id="listStatus" class="hint">Loading disputes...</p>
       <div id="disputeList"></div>
     </section>
 
@@ -38,7 +52,7 @@
         <button id="downloadBtn">Download images</button>
         <button id="analyzeBtn">Run analysis</button>
       </div>
-      <pre id="analysisResult"></pre>
+      <pre id="analysisResult">Select a dispute and run analysis.</pre>
 
       <h3>Human review</h3>
       <label>Decision
@@ -52,7 +66,7 @@
         <input type="number" id="reviewPct" min="0" max="100" step="1" />
       </label>
       <label>Notes
-        <textarea id="reviewNotes" rows="3"></textarea>
+        <textarea id="reviewNotes" rows="3" placeholder="Optional review notes"></textarea>
       </label>
       <button id="saveReviewBtn">Save review</button>
     </section>
